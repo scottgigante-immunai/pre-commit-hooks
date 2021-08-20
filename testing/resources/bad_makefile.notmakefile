@@ -1,0 +1,10 @@
+all: foo bar baz
+
+foo:
+	echo "foo"
+
+bar: baz this_is_not_fixable
+	echo "bar"
+
+baz:
+	echo "baz"
