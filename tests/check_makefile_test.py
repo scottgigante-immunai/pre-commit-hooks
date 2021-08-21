@@ -9,7 +9,7 @@ from testing.util import get_resource_path
     ('filename', 'expected_retval'),
     (
         ('bad_makefile.notmakefile', 1),
-        ('fixable_makefile_spaces_not_tabs.makefile', 1),
+        ('fixable_makefile_spaces_not_tabs.notmakefile', 1),
         ('ok_makefile.makefile', 0),
     ),
 )
@@ -30,7 +30,7 @@ def test_main(tmpdir, capsys, filename, expected_retval):
     ('input_filename', 'output_filename', 'expected_retval'),
     (
         (
-            'fixable_makefile_spaces_not_tabs.makefile',
+            'fixable_makefile_spaces_not_tabs.notmakefile',
             'fixed_makefile_spaces_not_tabs.makefile',
             1,
         ),
