@@ -1,6 +1,6 @@
 -   id: check-makefile
-    name: Check python ast
-    description: Simply check whether the files parse as valid python.
-    entry: check-ast
+    name: Check GNU makefiles
+    description: Simply check whether the files parse as valid Makefiles.
+    entry: check-makefile
     language: python
     files: ^\(M\|.*\.m\)akefile$
