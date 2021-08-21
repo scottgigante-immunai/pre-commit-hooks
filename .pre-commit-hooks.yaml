@@ -3,6 +3,4 @@
     description: Simply check whether the files parse as valid python.
     entry: check-ast
     language: python
-    files:
-    - ^Makefile$
-    - ^.*\.makefile)$
+    files: ^\(M\|.*\.m\)akefile$
