@@ -45,6 +45,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -U -r requirements-dev.txt
 
+    - name: Run lints
+      run: mypy pre_commit_hooks
+
     - name: Run tests
       run: pytest
 
