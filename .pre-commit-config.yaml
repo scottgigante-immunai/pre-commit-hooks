@@ -3,7 +3,7 @@ repos:
     rev: 745fa30
     hooks:
     -   id: check-makefile
-        args: ['--target=DNE']
+        args: ['--target=all', '--target=foo']
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
