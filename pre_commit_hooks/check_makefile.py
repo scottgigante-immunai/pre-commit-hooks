@@ -49,10 +49,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='*', help='Filenames to check.')
     parser.add_argument(
-        '--targets', nargs='*', default=None, help='Make targets to check.',
+        '--target', action='append', help='Make targets to check.',
     )
     args = parser.parse_args(argv)
-    raise ValueError(str(args))
 
     retval = 0
     for filename in args.filenames:
@@ -61,7 +60,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             print(f'reformatted {filename}')
             retval = 1
         try:
-            parse_makefile(filename, targets=args.targets)
+            parse_makefile(filename, targets=args.target)
         except ValueError as exc:
             print(
                 f'{filename}: Failed to parse with `make --dry-run`\n({exc})',

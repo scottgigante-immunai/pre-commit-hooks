@@ -41,7 +41,7 @@ def test_main_with_targets(tmpdir, capsys, filename, expected_retval):
         temp_file, 'w',
     ) as out_handle:
         out_handle.write(in_handle.read())
-    ret = main([str(temp_file), '--targets', 'all', 'baz'])
+    ret = main([str(temp_file), '--target', 'all', '--target', 'baz'])
     assert ret == expected_retval
     if expected_retval == 1:
         stdout, _ = capsys.readouterr()
