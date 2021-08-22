@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/scottgigante-immunai/pre-commit-hooks
-    rev: e1859d3
+    rev: 7ea767e
     hooks:
     -   id: check-makefile
         args: ['--targets', 'DNE']
