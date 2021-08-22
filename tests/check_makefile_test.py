@@ -27,6 +27,28 @@ def test_main(tmpdir, capsys, filename, expected_retval):
 
 
 @pytest.mark.parametrize(
+    ('filename', 'expected_retval'),
+    (
+        ('bad_makefile.notmakefile', 1),
+        ('fixable_makefile_spaces_not_tabs.notmakefile', 1),
+        ('fixed_makefile_spaces_not_tabs.makefile', 1),
+        ('ok_makefile.makefile', 0),
+    ),
+)
+def test_main_with_targets(tmpdir, capsys, filename, expected_retval):
+    temp_file = tmpdir.join('t.makefile')
+    with open(get_resource_path(filename)) as in_handle, open(
+        temp_file, 'w',
+    ) as out_handle:
+        out_handle.write(in_handle.read())
+    ret = main([str(temp_file), '--targets', 'all', 'baz'])
+    assert ret == expected_retval
+    if expected_retval == 1:
+        stdout, _ = capsys.readouterr()
+        assert str(temp_file) in stdout
+
+
+@pytest.mark.parametrize(
     ('input_filename', 'output_filename', 'expected_retval'),
     (
         (

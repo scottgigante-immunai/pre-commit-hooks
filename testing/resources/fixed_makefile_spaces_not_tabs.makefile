@@ -1,11 +1,8 @@
-all: foo bar baz
+all: foo bar
 
-foo:
+foo: bar
 	echo "foo"
 	echo "this line uses spaces not tabs"
 
-bar: baz
+bar:
 	echo "bar"
-
-baz:
-	echo "baz"
