@@ -1,6 +1,7 @@
 import argparse
 import re
 import subprocess
+import sys
 from typing import List
 from typing import Optional
 from typing import Sequence
@@ -29,7 +30,7 @@ def _parse_makefile(filename: str, target: Optional[str] = None) -> None:
     args = ['make', '-f', filename, '--dry-run']
     if target:
         args.append(target)
-    print(args)
+    sys.stdout.write(' '.join(args))
     process = subprocess.Popen(
         args, stderr=subprocess.PIPE, stdout=subprocess.DEVNULL,
     )
