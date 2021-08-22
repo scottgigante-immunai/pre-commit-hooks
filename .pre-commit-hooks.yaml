@@ -3,4 +3,4 @@
     description: Simply check whether the files parse as valid Makefiles.
     entry: check-makefile
     language: python
-    types: [mk]
+    types: [Makefile]
