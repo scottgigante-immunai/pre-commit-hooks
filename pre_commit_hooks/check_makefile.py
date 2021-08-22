@@ -25,24 +25,16 @@ def fix_file(filename: str) -> int:
     return 0
 
 
-def _parse_makefile(filename: str, target: Optional[str] = None) -> None:
+def parse_makefile(filename: str, targets: Optional[List[str]]) -> None:
     args = ['make', '-f', filename, '--dry-run']
-    if target:
-        args.append(target)
+    if targets:
+        args.extend(targets)
     process = subprocess.Popen(
         args, stderr=subprocess.PIPE, stdout=subprocess.DEVNULL,
     )
     _, stderr = process.communicate()
     if process.returncode != 0:
         raise ValueError(stderr.decode())
-
-
-def parse_makefile(filename: str, targets: Optional[List[str]]) -> None:
-    if targets:
-        for target in targets:
-            _parse_makefile(filename, target)
-    else:
-        _parse_makefile(filename)
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
