@@ -1,9 +1,9 @@
 repos:
 -   repo: https://github.com/scottgigante-immunai/pre-commit-hooks
-    rev: 7ea767e
+    rev: 745fa30
     hooks:
     -   id: check-makefile
-        args: ['--targets', 'DNE']
+        args: ['--target=DNE']
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
