@@ -29,8 +29,7 @@ def _parse_makefile(filename: str, target: Optional[str] = None) -> None:
     args = ['make', '-f', filename, '--dry-run']
     if target:
         args.append(target)
-    with open('temp.log', 'w') as f:
-        f.write(' '.join(args))
+    raise ValueError(' '.join(args))
     process = subprocess.Popen(
         args, stderr=subprocess.PIPE, stdout=subprocess.DEVNULL,
     )
