@@ -1,8 +1,8 @@
 repos:
 -   repo: https://github.com/scottgigante-immunai/pre-commit-hooks
-    rev: f1b7ace8b64f1bd50224063149a2a5c16c3ea81b
+    rev: v0.0.4
     hooks:
-    - id: check-makefile
+    -   id: check-makefile
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
