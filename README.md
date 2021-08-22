@@ -19,7 +19,7 @@ Add this to your `.pre-commit-config.yaml`
     rev: v0.0
     hooks:
     -   id: check-makefile
-    # -   id: ...
+    #   args: ['--target=all', '--target=help']
 ```
 
 ### Hooks available
