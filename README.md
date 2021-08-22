@@ -26,7 +26,7 @@ Add this to your `.pre-commit-config.yaml`
 
 #### `check-makefile`
 Check makefile syntax
-  - Replaces spaces with tabs
+  - Replaces leading spaces with tabs
   - Runs `make --dry-run` to check syntax
 
 ### As a standalone package

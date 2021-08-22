@@ -9,11 +9,11 @@ from typing import Sequence
 def fix_file(filename: str) -> int:
     """Fix formatting of makefiles.
 
-    Currently, all this does is replaces spaces with tabs.
+    Currently, all this does is replaces leading spaces with tabs.
     """
     with open(filename) as handle:
         contents = handle.read()
-    pattern = re.compile(r'^  ')
+    pattern = re.compile(r'^ +')
     contents_fixed = '\n'.join(
         pattern.sub('\t', line) for line in contents.split('\n')
     )

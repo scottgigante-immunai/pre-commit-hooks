@@ -5,6 +5,7 @@ foo:
 
 bar: baz
 	echo "bar"
+	echo "baz"
 
 baz:
 	echo "baz"
