@@ -29,7 +29,6 @@ def _parse_makefile(filename: str, target: Optional[str] = None) -> None:
     args = ['make', '-f', filename, '--dry-run']
     if target:
         args.append(target)
-    raise ValueError(' '.join(args))
     process = subprocess.Popen(
         args, stderr=subprocess.PIPE, stdout=subprocess.DEVNULL,
     )
@@ -53,6 +52,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         '--targets', nargs='*', default=None, help='Make targets to check.',
     )
     args = parser.parse_args(argv)
+    raise ValueError(str(args))
 
     retval = 0
     for filename in args.filenames:
