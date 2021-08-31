@@ -1,4 +1,5 @@
 import argparse
+import os
 import re
 import subprocess
 from typing import List
@@ -26,11 +27,13 @@ def fix_file(filename: str) -> int:
 
 
 def parse_makefile(filename: str, targets: Optional[List[str]]) -> None:
+    filename = os.path.abspath(filename)
+    workdir = os.path.dirname(filename)
     args = ['make', '-f', filename, '--dry-run']
     if targets:
         args.extend(targets)
     process = subprocess.Popen(
-        args, stderr=subprocess.PIPE, stdout=subprocess.DEVNULL,
+        args, stderr=subprocess.PIPE, stdout=subprocess.DEVNULL, cwd=workdir,
     )
     _, stderr = process.communicate()
     if process.returncode != 0:
