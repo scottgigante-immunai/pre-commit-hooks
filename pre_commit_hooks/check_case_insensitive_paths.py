@@ -17,8 +17,18 @@ def git_base_dir(filename: str) -> str:
     return os.path.abspath(stdout.decode().strip())
 
 
+def list_files_recursive(dir: pathlib.Path) -> Sequence[pathlib.Path]:
+    result = [dir]
+    if dir.is_dir():
+        for subdir in dir.iterdir():
+            result.extend(list_files_recursive(subdir))
+    return result
+
+
 def list_files(base_dir: str) -> Sequence[str]:
-    return tuple(dir.as_posix() for dir in pathlib.Path(base_dir).iterdir())
+    return tuple(
+        dir.as_posix() for dir in list_files_recursive(pathlib.Path(base_dir))
+    )
 
 
 @lru_cache(None)
