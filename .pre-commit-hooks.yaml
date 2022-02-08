@@ -4,3 +4,8 @@
     entry: check-makefile
     language: python
     types: [makefile]
+-   id: check-case-insensitive-paths
+    name: Check case insensitive file paths
+    description: Ensure that all added filepaths are unique in a case-insensitive filesystem.
+    entry: check-case-insensitive-paths
+    language: python
