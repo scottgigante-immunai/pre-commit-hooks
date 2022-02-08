@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/scottgigante-immunai/pre-commit-hooks
-    rev: v0.3.1
+    rev: v0.3.2
     hooks:
     -   id: check-makefile
     -   id: check-case-insensitive-paths
