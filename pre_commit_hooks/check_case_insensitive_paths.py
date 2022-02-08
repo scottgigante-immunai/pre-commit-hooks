@@ -29,6 +29,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='*', help='Filenames to check.')
     args = parser.parse_args(argv)
+    print(argv, args)
 
     file_list = list_files(args.filenames[0])
     retval = 0
