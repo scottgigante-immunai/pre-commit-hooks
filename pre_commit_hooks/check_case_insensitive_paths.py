@@ -18,7 +18,6 @@ def list_files(filename: str) -> Sequence[str]:
 
 
 def check_file(filename: str, file_list: Sequence[str]) -> Optional[str]:
-    filename = os.path.abspath(filename)
     for other_file in file_list:
         if other_file != filename and other_file.lower() == filename.lower():
             return other_file
@@ -29,11 +28,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='*', help='Filenames to check.')
     args = parser.parse_args(argv)
-    print(argv, args)
+    filenames = [os.path.abspath(filename) for filename in args.filenames]
 
-    file_list = list_files(args.filenames[0])
+    file_list = list_files(filenames[0])
     retval = 0
-    for filename in args.filenames:
+    for filename in filenames:
         match = check_file(filename, file_list)
         if match:
             print(
