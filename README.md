@@ -16,8 +16,9 @@ Add this to your `.pre-commit-config.yaml`
 
 ```yaml
 -   repo: https://github.com/scottgigante-immunai/pre-commit-hooks
-    rev: v0.0
+    rev: v0.3.2
     hooks:
+    -   id: check-case-insensitive-paths
     -   id: check-makefile
     #   args: ['--target=all', '--target=help']
 ```
@@ -28,6 +29,9 @@ Add this to your `.pre-commit-config.yaml`
 Check makefile syntax
   - Replaces leading spaces with tabs
   - Runs `make --dry-run` to check syntax
+
+#### `check-case-insensitive-paths`
+Ensures that no two files or directories exist that would conflict in a case-insensitive filesystem.
 
 ### As a standalone package
 
