@@ -52,7 +52,8 @@ def create_tempfile(filename):
     ),
 )
 def test_main(capsys, filename, capitalize, expected_retval):
-    pytest.mark.skipif(is_fs_case_insensitive())
+    if is_fs_case_insensitive():
+        pytest.skip('Skipping on case-insensitive system')
     filename = get_resource_path(filename)
     if capitalize == 'basename':
         filename = os.path.join(
